@@ -18,6 +18,12 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.8.5 # <-- match your version
+     
+      - name: config git
+        env:
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+        run: |
+          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "https:github.com"
 
       - name: Terraform Init
         run: terraform init
