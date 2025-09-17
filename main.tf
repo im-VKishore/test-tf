@@ -2,6 +2,8 @@ provider "aws" {
   region = var.region
 }
 
+data "aws_caller_identity" "current" {}
+
 # IAM Role
 resource "aws_iam_role" "this" {
   name               = var.role_name
