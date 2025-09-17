@@ -30,7 +30,3 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan -var-file=instance.tfvars
-      
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'   # only apply on main branch
-        run: terraform apply -auto-approve tfplan
