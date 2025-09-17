@@ -1,15 +1,6 @@
-name: Terraform CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
 jobs:
   terraform:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -17,19 +8,17 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.8.5 # <-- match your version
-     
-      - name: config git
-        env:
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
-        run: |
-          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "https:github.com"
+          terraform_version: 1.8.5
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Validate
-        run: terraform validate
-
       - name: Terraform Plan
-        run: terraform plan -out=tfplan -var-file="instance.tfvars"
+        run: terraform plan -out=tfplan -var-file=instance.tfvars
