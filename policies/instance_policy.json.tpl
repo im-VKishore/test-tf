@@ -53,7 +53,7 @@
         "logs:CreateLogStream"
       ],
       "Resource": [
-        "arn:aws:logs:us-east-1:{data.aws_caller_identity.current.account_id}:log-group:*:*:*"
+        "arn:aws:logs:us-east-1:{account_id}:log-group:*:*:*"
       ]
     },
     {
@@ -62,7 +62,7 @@
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:us-east-1:{data.aws_caller_identity.current.account_id}:*:*:*"
+        "arn:aws:logs:us-east-1:{account_id}:*:*:*"
       ]
     },
     {
@@ -106,9 +106,9 @@
         "logs:UntagLogGroup"
       ],
       "Resource": [
-        "arn:aws:logs:us-east-1:{data.aws_caller_identity.current.account_id}:log-group:*",
-        "arn:aws:logs:us-east-1:{data.aws_caller_identity.current.account_id}:log-group:/aws*",
-        "arn:aws:logs:us-east-1:{data.aws_caller_identity.current.account_id}:destination:*"
+        "arn:aws:logs:us-east-1:{account_id}:log-group:*",
+        "arn:aws:logs:us-east-1:{account_id}:log-group:/aws*",
+        "arn:aws:logs:us-east-1:{account_id}:destination:*"
       ]
     },
     {
@@ -136,7 +136,7 @@
         "sns:Publish"
       ],
       "Resource": [
-        "arn:aws:sns:us-east-1:{data.aws_caller_identity.current.account_id}:Monitoring*"
+        "arn:aws:sns:us-east-1:{account_id}:Monitoring*"
       ]
     }
   ]
