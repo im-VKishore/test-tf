@@ -17,7 +17,7 @@ resource "aws_iam_role_policy" "instance_policy" {
   name = var.instance_policy_name
   role = aws_iam_role.this.id
 
-  policy = file("${path.module}/policies/instance_policy.tpl", {
+  policy = templatefile("${path.module}/policies/instance_policy.tpl", {
     region     = var.region
     account_id = data.aws_caller_identity.current.account_id
   })
@@ -28,7 +28,7 @@ resource "aws_iam_role_policy" "instancecombined_policy" {
   name = var.combined_policy_name
   role = aws_iam_role.this.id
 
-  policy = file("${path.module}/policies/instancecombined_policy.tpl", {
+  policy = templatefile("${path.module}/policies/instancecombined_policy.tpl", {
     region     = var.region
     account_id = data.aws_caller_identity.current.account_id
   })
