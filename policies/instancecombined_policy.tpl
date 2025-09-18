@@ -39,7 +39,7 @@
         "sagemaker:ListApps"
       ],
       "Resource": [
-        "arn:aws:sagemaker:{region}:{account_id}:app/d-tjxxturd0si2/*/*/*"
+        "arn:aws:sagemaker:${region}:${account_id}:app/d-tjxxturd0si2/*/*/*"
       ]
     },
     {
