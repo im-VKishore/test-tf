@@ -4,10 +4,6 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "account_id" {
-  description = "AWS account number"
-  type        = string
-}
 
 variable "role_name" {
   description = "Name of the IAM role"
