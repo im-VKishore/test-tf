@@ -21,10 +21,10 @@
         "s3:ListBucketMultipartUploads"
       ],
       "Resource": [
-        "arn:aws:s3:::emdeon-dev-{ secrets.AWS_DEFAULT_REGION }",
-        "arn:aws:s3:::emdeon-dev-{ secrets.AWS_DEFAULT_REGION }/*",
-        "arn:aws:s3:::emdeon-prod-{ secrets.AWS_DEFAULT_REGION }",
-        "arn:aws:s3:::emdeon-prod-{ secrets.AWS_DEFAULT_REGION }/*"
+        "arn:aws:s3:::emdeon-dev-",
+        "arn:aws:s3:::emdeon-dev-/*",
+        "arn:aws:s3:::emdeon-prod-",
+        "arn:aws:s3:::emdeon-prod-/*"
       ]
     },
     {
@@ -53,7 +53,7 @@
         "logs:CreateLogStream"
       ],
       "Resource": [
-        "arn:aws:logs:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:log-group:*:*:*"
+        "arn:aws:logs:::log-group:*:*:*"
       ]
     },
     {
@@ -62,7 +62,7 @@
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:*:*:*"
+        "arn:aws:logs:::*:*:*"
       ]
     },
     {
@@ -106,9 +106,9 @@
         "logs:UntagLogGroup"
       ],
       "Resource": [
-        "arn:aws:logs:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:log-group:*",
-        "arn:aws:logs:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:log-group:/aws*",
-        "arn:aws:logs:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:destination:*"
+        "arn:aws:logs:::log-group:*",
+        "arn:aws:logs:::log-group:/aws*",
+        "arn:aws:logs:::destination:*"
       ]
     },
     {
@@ -136,7 +136,7 @@
         "sns:Publish"
       ],
       "Resource": [
-        "arn:aws:sns:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:Monitoring*"
+        "arn:aws:sns:::Monitoring*"
       ]
     }
   ]

@@ -39,7 +39,7 @@
         "sagemaker:ListApps"
       ],
       "Resource": [
-        "arn:aws:sagemaker:{ secrets.AWS_DEFAULT_REGION }:{ secrets.AWS_ACCOUNT_ID }:app/d-tjxxturd0si2/*/*/*"
+        "arn:aws:sagemaker:::app/d-tjxxturd0si2/*/*/*"
       ]
     },
     {
