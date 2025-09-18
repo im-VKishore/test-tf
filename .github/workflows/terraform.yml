@@ -33,14 +33,14 @@ jobs:
 
       - name: Terraform Plan
         env:
-         TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-         TF_VAR_region: ${{ secrets.AWS_DEFAULT_REGION }}
+         AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+         AWS_DEFAULT_REGION : ${{ secrets.AWS_DEFAULT_REGION }}
         run: terraform plan -out=tfplan -var-file=instance.tfvars
 
       - name: Terraform Apply
         env:
-         TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-         TF_VAR_region: ${{ secrets.AWS_DEFAULT_REGION }}
+         AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+         AWS_DEFAULT_REGION : ${{ secrets.AWS_DEFAULT_REGION }}
          run: echo "TF_VAR_account_id=${{ secrets.AWS_ACCOUNT_ID }}"
        # if: github.ref == 'refs/heads/main'   # only apply on main branch
         run: terraform apply -auto-approve tfplan
