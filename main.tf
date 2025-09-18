@@ -4,6 +4,7 @@ provider "aws" {
 
 # Get AWS Account ID dynamically
 data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
 
 # IAM Role
 resource "aws_iam_role" "this" {
