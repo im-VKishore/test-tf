@@ -21,10 +21,10 @@
         "s3:ListBucketMultipartUploads"
       ],
       "Resource": [
-        "arn:aws:s3:::emdeon-dev-",
-        "arn:aws:s3:::emdeon-dev-/*",
-        "arn:aws:s3:::emdeon-prod-",
-        "arn:aws:s3:::emdeon-prod-/*"
+        "arn:aws:s3:::emdeon-dev-{region}",
+        "arn:aws:s3:::emdeon-dev-{region}/*",
+        "arn:aws:s3:::emdeon-prod-{region}",
+        "arn:aws:s3:::emdeon-prod-{region}/*"
       ]
     },
     {
@@ -53,7 +53,7 @@
         "logs:CreateLogStream"
       ],
       "Resource": [
-        "arn:aws:logs:::log-group:*:*:*"
+        "arn:aws:logs:{region}:{account_id}:log-group:*:*:*"
       ]
     },
     {
@@ -62,7 +62,7 @@
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:::*:*:*"
+        "arn:aws:logs:{region}:{account_id}:*:*:*"
       ]
     },
     {
@@ -106,9 +106,9 @@
         "logs:UntagLogGroup"
       ],
       "Resource": [
-        "arn:aws:logs:::log-group:*",
-        "arn:aws:logs:::log-group:/aws*",
-        "arn:aws:logs:::destination:*"
+        "arn:aws:logs:{region}:{account_id}:log-group:*",
+        "arn:aws:logs:{region}:{account_id}:log-group:/aws*",
+        "arn:aws:logs:{region}:{account_id}:destination:*"
       ]
     },
     {
@@ -136,7 +136,7 @@
         "sns:Publish"
       ],
       "Resource": [
-        "arn:aws:sns:::Monitoring*"
+        "arn:aws:sns:{region}:{account_id}:Monitoring*"
       ]
     }
   ]

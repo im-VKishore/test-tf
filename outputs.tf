@@ -20,3 +20,11 @@ output "instancecombined_policy_name" {
   description = "The name of the inline policy attached (instancecombined_policy.tpl)"
   value       = aws_iam_role_policy.instancecombined_policy.name
 }
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+
+output "region" {
+  value = var.region
+}
